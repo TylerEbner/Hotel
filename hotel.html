@@ -1,0 +1,244 @@
+<html>
+  <head>
+  <style>
+  #background {
+    background-image: url(https://stormandsky.com/gif/14.gif);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  #room1 {
+    width:20% ;
+    height:50% ;
+    float: left;
+    border: 10px solid;
+    border-color: rgb(0, 204, 255);
+    border-radius: 15px 50px 30px;
+    padding: 10px;
+    }
+  
+  #room2 {
+    width: 20%;
+    height: 50% ;
+    float: left;
+    border: 10px solid;
+    border-color: rgb(255, 51, 204);
+    border-radius: 15px 50px 30px;
+    padding: 10px;
+  }
+  
+  #room3 {
+    width: 20% ;
+    height: 50% ;
+    float: left;
+    border: 10px solid;
+    border-color: rgb(0, 204, 255);
+    border-radius: 15px 50px 30px;
+    padding: 10px;
+  }
+  
+  #room4 {
+    width: 20%;
+    height: 50% ;
+    float: left;
+    border: 10px solid;
+    border-color: rgb(255, 51, 204);
+    border-radius: 15px 50px 30px;
+    padding: 10px;
+  }
+  
+  #guest1 {
+    width: 64%;
+  }
+    #guest2 {
+    width: 64%;
+  }
+    #guest3 {
+    width: 64%;
+  }
+    #guest4 {
+    width: 64%;
+  }
+    #removeGuest1 {
+    width: 64%;
+  }
+      #removeGuest2 {
+    width: 64%;
+  }
+      #removeGuest3 {
+    width: 64%;
+  }
+      #removeGuest4 {
+    width: 64%;
+  }
+  
+  #roomOne {
+    font-size: 25px;
+  }
+    #roomTwo {
+    font-size: 25px;
+  }
+    #roomThree {
+    font-size: 25px;
+  }
+    #roomFour {
+    font-size: 25px;
+  }
+  </style>
+  </head>
+  
+  <body>
+   
+    <script>
+ var d = new Date();
+      r1 = 0;
+      r2 = 0;
+      r3 = 0;
+      r4 = 0;
+      
+      function addGuest1() {
+        if (r1<3) {
+        var list1 = document.createElement('li');
+        var takeName = document.getElementById('guest1').value;
+        var textNode = document.createTextNode(takeName+" "+d);
+        list1.appendChild(textNode);
+        document.getElementById('roomOne').appendChild(list1);
+        r1++;
+        }
+        else {
+          document.getElementById("room1").style.backgroundColor= "red";
+        }
+      }
+          
+      function removeGuest1() {
+        var z = document.getElementById('removeGuest1').value;
+        var list1 = document.getElementById("roomOne");
+        list1.removeChild(list1.childNodes[z-1]);
+        document.getElementById("room1").style.backgroundColor= "";
+        r1--;
+      }
+      //----------------------------------------------------------------------
+      
+            function addGuest2() {
+        if (r2<3) {
+        var list2 = document.createElement('li');
+        var takeName = document.getElementById('guest2').value;
+        var textNode = document.createTextNode(takeName+" "+d);
+        list2.appendChild(textNode);
+        document.getElementById('roomTwo').appendChild(list2);
+        r2++;
+        }
+        else {
+          document.getElementById("room2").style.backgroundColor= "red";
+        }
+      }
+          
+      function removeGuest2() {
+        var y = document.getElementById('removeGuest2').value;
+        var list2 = document.getElementById("roomTwo");
+        list2.removeChild(list2.childNodes[y-1]);
+        document.getElementById("room2").style.backgroundColor= "";
+        r2--;
+      }
+      //-----------------------------------------------------------------------
+            function addGuest3() {
+        if (r3<3) {
+        var list3 = document.createElement('li');
+        var takeName = document.getElementById('guest3').value;
+        var textNode = document.createTextNode(takeName+" "+d);
+        list3.appendChild(textNode);
+        document.getElementById('roomThree').appendChild(list3);
+        r3++;
+        }
+        else {
+          document.getElementById("room3").style.backgroundColor= "red";
+        }
+      }
+          
+      function removeGuest3() {
+        var x = document.getElementById('removeGuest3').value;
+        var list3 = document.getElementById("roomThree");
+        list3.removeChild(list3.childNodes[x-1]);
+        document.getElementById("room3").style.backgroundColor= "";
+        r3--;
+      }
+      //------------------------------------------------------------------------------
+            function addGuest4() {
+        if (r4<3) {
+        var list4 = document.createElement('li');
+        var takeName = document.getElementById('guest4').value;
+        var textNode = document.createTextNode(takeName+" "+d);
+        list4.appendChild(textNode);
+        document.getElementById('roomFour').appendChild(list4);
+        r4++;
+        }
+        else {
+          document.getElementById("room4").style.backgroundColor= "red";
+        }
+      }
+          
+      function removeGuest4() {
+        var w = document.getElementById('removeGuest4').value;
+        var list4 = document.getElementById("roomFour");
+        list4.removeChild(list4.childNodes[w-1]);
+        document.getElementById("room4").style.backgroundColor= "";
+        r4--;
+      }
+      //------------------------------------------------------------------------
+          
+    
+        
+    </script>
+    <div id="background"></div>
+    <!--Room 1-->
+      <div id="room1">
+    <h1>Room 1</h1>
+        <input type="text" id="guest1">
+      <button onclick="addGuest1()">Welcome, Check In Guest</button>
+      
+        <input type="number" id="removeGuest1">
+      <button onclick="removeGuest1()">Remove Guest By Number</button>
+      <ol id="roomOne"></ol>
+    </div>
+    
+    <!--Room 2-->
+      <div id="room2">
+        <h1>Room 2</h1>
+        <input type="text" id="guest2">
+        <button onclick="addGuest2()">Welcome, Check In Guest</button>
+        <input type="number" id="removeGuest2">
+        <button onclick="removeGuest2()">Remove Guest By Number</button>
+      
+      <ol id="roomTwo"></ol>
+      </div>
+       <!--Room 3-->
+       
+      <div id="room3">
+        <h1>Room 3</h1>
+        <input type="text" id="guest3">
+        <button onclick="addGuest3()">Welcome, Check In Guest</button>
+        <input type="number" id="removeGuest3">
+        <button onclick="removeGuest3()">Remove Guest By Number</button>
+      
+      <ol id="roomThree"></ol>
+      </div>
+      
+      <!--Room 4-->
+      <div id="room4">
+        <h1>Room 4</h1>
+        <input type="text" id="guest4">
+        <button onclick="addGuest4()">Welcome, Check In Guest</button>
+        <input type="number" id="removeGuest4">
+        <button onclick="removeGuest4()">Remove Guest By Number</button>
+      
+      <ol id="roomFour"></ol>
+      </div>
+      
+      
+    </body>
+</html>
